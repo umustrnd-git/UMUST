@@ -18,45 +18,47 @@ export default function Main() {
   const [isMouseOver, setIsMouseOver] = useState(false);
   const [touchStartX, setTouchStartX] = useState(null);
   /* API 상태관리 */
-  const [press, setPress] = useState([]); 
-  
-  const [events, setEvents] = useState([]); 
+const [press, setPress] = useState([]); /* 보도자료 */
+const [events, setEvents] = useState([]); /* 행사정보 */
+const [loading, setLoading] = useState(true); // 로딩 상태 추가
 
- 
-  useEffect(() => {
-    let isMounted = true; 
+useEffect(() => {
+  let isMounted = true;
 
-    const fetchPress = async () => {
-      try {
-        const response = await axios.get('/api/articles/NEWS/latest');
-        setPress([response.data]);
-        console.log()
-    
-      } catch (error) {
-        console.error('보도자료 가져오는데 문제가 발생했:', error);
-      }
-    };
-  
+  const fetchPress = async () => {
+    try {
+      const response = await axios.get('/api/articles/NEWS/latest');
+      setPress([response.data]); // 배열로 감싸도록 수정
+    } catch (error) {
+      console.error('보도자료 가져오는데 문제가 발생했습니다:', error);
+    }
+  };
 
+  const fetchEvents = async () => {
+    try {
+      const response = await axios.get('/api/articles/EVENT/latest');
+      setEvents([response.data]); // 배열로 감싸도록 수정
+    } catch (error) {
+      console.error('행사정보를 가져오는데 문제가 발생했습니다:', error);
+    }
+  };
 
-    const fetchEvents = async () => {
-      try {
-        const response = await axios.get('/api/articles/EVENT/latest');
-        setEvents([response.data]);
+  const fetchData = async () => {
+    try {
+      setLoading(true); // 데이터 로딩 시작
+      await Promise.all([fetchPress(), fetchEvents()]);
+    } finally {
+      setLoading(false); // 데이터 로딩 종료
+    }
+  };
 
-      } catch (error) {
-        console.error('행사정보를 가져오는데 문제가 발생했:', error);
-      }
-    };
+  fetchData();
 
-        fetchPress();
-        fetchEvents();
-      
-        return () => {
-          isMounted = false;
-        };
-      }, []);
-      
+  return () => {
+    isMounted = false;
+  };
+}, []);
+
 
 
   useEffect(() => {
@@ -196,24 +198,40 @@ export default function Main() {
 
                 {/* 보도자료 */}
                 <S.PressContainer>
-                  {press.map((item, index) => (
-                    <S.Press key={index}>
-                      <div>{item.title}</div>
-                      <div>{item.createdAt}</div>
-                      <div>{item.content.length > 60 ? `${item.content.substring(0, 60)}...` : item.content}</div>
-                    </S.Press>
-                  ))}
-                </S.PressContainer>
+  {loading ? (
+    <div>Loading...</div>
+  ) : (
+    press && press.length > 0 ? (
+      press.map((item, index) => (
+        <S.Press key={index}>
+          <div>{item.title}</div>
+          <div>{item.createdAt}</div>
+          <div>{item.content}</div>
+        </S.Press>
+      ))
+    ) : (
+      <div>No press data available</div>
+    )
+  )}
+</S.PressContainer>
 
-                <S.EventContainer>
-                  {events.map((item, index) => (
-                    <S.Event key={index}>
-                      <div>{item.title}</div>
-                      <div>{item.createdAt}</div>
-                      <div>{item.content.length > 60 ? `${item.content.substring(0, 60)}...` : item.content}</div>
-                    </S.Event>
-                  ))}
-                </S.EventContainer>
+<S.EventContainer>
+  {loading ? (
+    <div>Loading...</div>
+  ) : (
+    events && events.length > 0 ? (
+      events.map((item, index) => (
+        <S.Event key={index}>
+          <div>{item.title}</div>
+          <div>{item.createdAt}</div>
+          <div>{item.content}</div>
+        </S.Event>
+      ))
+    ) : (
+      <div>No event data available</div>
+    )
+  )}
+</S.EventContainer>
 
             </S.TextContainer>
 
