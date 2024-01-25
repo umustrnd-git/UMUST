@@ -39,24 +39,24 @@ export default function Main() {
   
 
 
-const fetchEvents = async () => {
-  try {
-    const response = await axios.get('/api/articles/EVENT/latest');
-    setEvents([response.data]);
+    const fetchEvents = async () => {
+      try {
+        const response = await axios.get('/api/articles/EVENT/latest');
+        setEvents([response.data]);
 
-  } catch (error) {
-    console.error('행사정보를 가져오는데 문제가 발생했:', error);
-  }
-};
-
-    fetchPress();
-    fetchEvents();
-  
-    return () => {
-      isMounted = false;
+      } catch (error) {
+        console.error('행사정보를 가져오는데 문제가 발생했:', error);
+      }
     };
-  }, []);
-  
+
+        fetchPress();
+        fetchEvents();
+      
+        return () => {
+          isMounted = false;
+        };
+      }, []);
+      
 
 
   useEffect(() => {
