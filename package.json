@@ -24,7 +24,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage": "test-woad-mu.vercel.app",
   "eslintConfig": {
     "extends": [
       "react-app",
