@@ -22,13 +22,13 @@ const [press, setPress] = useState([]); /* 보도자료 */
 const [events, setEvents] = useState([]); /* 행사정보 */
 const [loading, setLoading] = useState(true); // 로딩 상태 추가
 
-useEffect(() => {
+ useEffect(() => {
   let isMounted = true;
 
   const fetchPress = async () => {
     try {
       const response = await axios.get('/api/articles/NEWS/latest');
-      setPress([response.data]); // 배열로 감싸도록 수정
+      setPress([response.data]); 
     } catch (error) {
       console.error('보도자료 가져오는데 문제가 발생했습니다:', error);
     }
@@ -37,7 +37,7 @@ useEffect(() => {
   const fetchEvents = async () => {
     try {
       const response = await axios.get('/api/articles/EVENT/latest');
-      setEvents([response.data]); // 배열로 감싸도록 수정
+      setEvents([response.data]); 
     } catch (error) {
       console.error('행사정보를 가져오는데 문제가 발생했습니다:', error);
     }
@@ -45,10 +45,10 @@ useEffect(() => {
 
   const fetchData = async () => {
     try {
-      setLoading(true); // 데이터 로딩 시작
+      setLoading(true); 
       await Promise.all([fetchPress(), fetchEvents()]);
     } finally {
-      setLoading(false); // 데이터 로딩 종료
+      setLoading(false); 
     }
   };
 
@@ -57,7 +57,7 @@ useEffect(() => {
   return () => {
     isMounted = false;
   };
-}, []);
+}, []); 
 
 
 
