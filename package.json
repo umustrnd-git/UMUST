@@ -24,7 +24,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://umust-hompage-f-ee.vercel.app",
+  "homepage": "test-woad-mu.vercel.app",
   "eslintConfig": {
     "extends": [
       "react-app",

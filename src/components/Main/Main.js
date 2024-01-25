@@ -194,26 +194,26 @@ const fetchEvents = async () => {
             <S.TextContainer>
               <S.Text>RECENT NEWS</S.Text>
 
-                {/* 보도자료 */}
-                <S.PressContainer>
-                  {press.map((item, index) => (
-                    <S.Press key={index}>
-                      <div>{item.title}</div>
-                      <div>{item.createdAt}</div>
-                      <div>{item.content.length > 60 ? `${item.content.substring(0, 60)}...` : item.content}</div>
-                    </S.Press>
-                  ))}
-                </S.PressContainer>
+{/* 보도자료 */}
+<S.PressContainer>
+  {press.map((item, index) => (
+    <S.Press key={index}>
+      <div>{item.title}</div>
+      <div>{item.createdAt}</div>
+      <div>{item.content?.length > 60 ? `${item.content.substring(0, 60)}...` : item.content}</div>
+    </S.Press>
+  ))}
+</S.PressContainer>
 
-                <S.EventContainer>
-                  {events.map((item, index) => (
-                    <S.Event key={index}>
-                      <div>{item.title}</div>
-                      <div>{item.createdAt}</div>
-                      <div>{item.content.length > 60 ? `${item.content.substring(0, 60)}...` : item.content}</div>
-                    </S.Event>
-                  ))}
-                </S.EventContainer>
+<S.EventContainer>
+  {events.map((item, index) => (
+    <S.Event key={index}>
+      <div>{item.title}</div>
+      <div>{item.createdAt}</div>
+      <div>{item.content?.length > 60 ? `${item.content.substring(0, 60)}...` : item.content}</div>
+    </S.Event>
+  ))}
+</S.EventContainer>
 {/*                  <S.PressContainer>
                   {press && press.length > 0 ? (
                     press.map((item, index) => (
