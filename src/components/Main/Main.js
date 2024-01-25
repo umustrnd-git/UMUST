@@ -22,7 +22,7 @@ const [press, setPress] = useState([]); /* 보도자료 */
 const [events, setEvents] = useState([]); /* 행사정보 */
 const [loading, setLoading] = useState(true); // 로딩 상태 추가
 
- useEffect(() => {
+/*  useEffect(() => {
   let isMounted = true;
 
   const fetchPress = async () => {
@@ -57,7 +57,50 @@ const [loading, setLoading] = useState(true); // 로딩 상태 추가
   return () => {
     isMounted = false;
   };
-}, []); 
+}, []);  */
+useEffect(() => {
+  let isMounted = true;
+
+  const fetchPress = async () => {
+    try {
+      const response = await axios.get('/api/articles/NEWS/latest');
+      setPress([response.data]); 
+    } catch (error) {
+      console.error('보도자료 가져오는데 문제가 발생했습니다:', error);
+    }
+  };
+
+  const fetchEvents = async () => {
+    try {
+      const response = await axios.get('/api/articles/EVENT/latest');
+      setEvents([response.data]); 
+    } catch (error) {
+      console.error('행사정보를 가져오는데 문제가 발생했습니다:', error);
+    }
+  };
+
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      const pressResponse = await axios.get('/api/articles/NEWS/latest');
+      const eventsResponse = await axios.get('/api/articles/EVENT/latest');
+      
+      setPress([pressResponse.data]);
+      setEvents([eventsResponse.data]);
+    } catch (error) {
+      console.error('데이터를 가져오는데 문제가 발생했습니다:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchData();
+
+  return () => {
+    isMounted = false;
+  };
+}, []);
+
 
 
 
