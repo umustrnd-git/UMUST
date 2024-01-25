@@ -194,124 +194,26 @@ const fetchEvents = async () => {
             <S.TextContainer>
               <S.Text>RECENT NEWS</S.Text>
 
-{/* 보도자료 */}
-<S.PressContainer>
-  {press.map((item, index) => (
-    <S.Press key={index}>
-      <div>{item.title}</div>
-      <div>{item.createdAt}</div>
-      <div>{item.content?.length > 60 ? `${item.content.substring(0, 60)}...` : item.content}</div>
-    </S.Press>
-  ))}
-</S.PressContainer>
-
-<S.EventContainer>
-  {events.map((item, index) => (
-    <S.Event key={index}>
-      <div>{item.title}</div>
-      <div>{item.createdAt}</div>
-      <div>{item.content?.length > 60 ? `${item.content.substring(0, 60)}...` : item.content}</div>
-    </S.Event>
-  ))}
-</S.EventContainer>
-{/*                  <S.PressContainer>
-                  {press && press.length > 0 ? (
-                    press.map((item, index) => (
-                      <S.Press key={index}>
-                        <div>{item.title}</div>
-                        <div>{item.createdAt}</div>
-                        <div>{item.content}</div>
-                      </S.Press>
-                    ))
-                  ) : (
-                    <div>No press data available</div>
-                  )}
+                {/* 보도자료 */}
+                <S.PressContainer>
+                  {press.map((item, index) => (
+                    <S.Press key={index}>
+                      <div>{item.title}</div>
+                      <div>{item.createdAt}</div>
+                      <div>{item.content.length > 60 ? `${item.content.substring(0, 60)}...` : item.content}</div>
+                    </S.Press>
+                  ))}
                 </S.PressContainer>
 
                 <S.EventContainer>
-                  {events && events.length > 0 ? (
-                    events.map((item, index) => (
-                      <S.Event key={index}>
-                        <div>{item.title}</div>
-                        <div>{item.createdAt}</div>
-                        <div>{item.content}</div>
-                      </S.Event>
-                    ))
-                  ) : (
-                    <div>No event data available</div>
-                  )}
-                </S.EventContainer>  */}
-           {/*      <S.PressContainer>
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
-          press && press.length > 0 ? (
-            press.map((item, index) => (
-              <S.Press key={index}>
-                <div>{item.title}</div>
-                <div>{item.createdAt}</div>
-                <div>{item.content}</div>
-              </S.Press>
-            ))
-          ) : (
-            <div>No press data available</div>
-          )
-        )}
-      </S.PressContainer>
-
-      <S.EventContainer>
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
-          events && events.length > 0 ? (
-            events.map((item, index) => (
-              <S.Event key={index}>
-                <div>{item.title}</div>
-                <div>{item.createdAt}</div>
-                <div>{item.content}</div>
-              </S.Event>
-            ))
-          ) : (
-            <div>No event data available</div>
-          )
-        )}
-      </S.EventContainer> */}
- {/*      <S.PressContainer>
-  {loading ? (
-    <div>Loading...</div>
-  ) : (
-    Array.isArray(press) && press.length > 0 ? (
-      press.map((item, index) => (
-        <S.Press key={index}>
-          <div>{item.title}</div>
-          <div>{item.createdAt}</div>
-          <div>{item.content}</div>
-        </S.Press>
-      ))
-    ) : (
-      <div>No press data available</div>
-    )
-  )}
-</S.PressContainer>
-
-<S.EventContainer>
-  {loading ? (
-    <div>Loading...</div>
-  ) : (
-    Array.isArray(events) && events.length > 0 ? (
-      events.map((item, index) => (
-        <S.Event key={index}>
-          <div>{item.title}</div>
-          <div>{item.createdAt}</div>
-          <div>{item.content}</div>
-        </S.Event>
-      ))
-    ) : (
-      <div>No event data available</div>
-    )
-  )}
-</S.EventContainer> */}
-
+                  {events.map((item, index) => (
+                    <S.Event key={index}>
+                      <div>{item.title}</div>
+                      <div>{item.createdAt}</div>
+                      <div>{item.content.length > 60 ? `${item.content.substring(0, 60)}...` : item.content}</div>
+                    </S.Event>
+                  ))}
+                </S.EventContainer>
 
             </S.TextContainer>
 
