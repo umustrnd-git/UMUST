@@ -9,8 +9,8 @@ const images = [
   '/img/slide_03.png',
 ];
 
-const BackendUrl = "https://eb-umust.umust302.shop"
-const videoId = 'HJ7bus70-_A'; // 유튜브 영상 ID
+ const BackendUrl = "https://eb-umust.umust302.shop"
+ const videoId = 'HJ7bus70-_A'; // 유튜브 영상 ID
 
 export default function Main() {
   const [currentImage, setCurrentImage] = useState(0);
@@ -26,7 +26,7 @@ export default function Main() {
 
     const fetchPress = async () => {
       try {
-        const response = await axios.get('/api/articles/NEWS/latest');
+        const response = await axios.get(BackendUrl + '/api/articles/NEWS/latest');
         setPress([response.data]);
       } catch (error) {
         console.error('보도자료 가져오는데 문제가 발생했습니다:', error);
@@ -63,7 +63,6 @@ export default function Main() {
       isMounted = false;
     };
   }, []);
-
 /*  useEffect(() => {
   let isMounted = true;
 
