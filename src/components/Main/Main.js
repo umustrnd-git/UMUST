@@ -35,7 +35,7 @@ export default function Main() {
 
     const fetchEvents = async () => {
       try {
-        const response = await axios.get('/api/articles/EVENT/latest');
+        const response = await axios.get(BackendUrl + '/api/articles/EVENT/latest');
         setEvents([response.data]);
       } catch (error) {
         console.error('행사정보를 가져오는데 문제가 발생했습니다:', error);
@@ -45,8 +45,8 @@ export default function Main() {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const pressResponse = await axios.get('/api/articles/NEWS/latest');
-        const eventsResponse = await axios.get('/api/articles/EVENT/latest');
+        const pressResponse = await axios.get (BackendUrl + '/api/articles/NEWS/latest');
+        const eventsResponse = await axios.get(BackendUrl + '/api/articles/EVENT/latest');
 
         setPress([pressResponse.data]);
         setEvents([eventsResponse.data]);

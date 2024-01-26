@@ -1,9 +1,0 @@
-{
-   "rewrites": [
-     {
-       "source": "/api/:path*",
-       "destination": "https://eb-umust.umust302.shop/api/:path*"
-     }
-   ]
- }
- 
