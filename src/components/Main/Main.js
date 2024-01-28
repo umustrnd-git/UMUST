@@ -32,7 +32,7 @@ export default function Main() {
 
     const fetchPress = async () => {
       try {
-        const response = await axios.get(BackendUrl + '/api/articles/NEWS/latest');
+        const response = await axios.get('/api/articles/NEWS/latest');
         setPress([response.data]);
       } catch (error) {
         console.error('보도자료 가져오는데 문제가 발생했습니다:', error);
