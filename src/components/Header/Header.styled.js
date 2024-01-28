@@ -308,6 +308,14 @@ export const SubMenu19 = styled.div`
    position: relative; */
    
 `;
+export const SubMenu20 = styled.div`
+/*    font: bold 15px/1 "arial";
+   color: #555;
+   padding: 20px 40px;
+   transition: all 0.5s;
+   position: relative; */
+   
+`;
 
 export const Menu1 = styled.div`
    width: 85px;

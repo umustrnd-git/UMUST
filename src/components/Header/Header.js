@@ -49,41 +49,41 @@ const Header = () => {
                   <S.SubMenu4 >조직도</S.SubMenu4>
                   <S.SubMenu5 >주요연혁</S.SubMenu5>
                   <S.SubMenu5 >Open Innovation</S.SubMenu5>
-                  <S.SubMenu5 >투자</S.SubMenu5>
+                  <S.SubMenu6 >투자</S.SubMenu6>
                 </S.MenuStyle1>
               )}
               {activeMenu === 2 && (
                 <S.MenuStyle2>
-                  <S.SubMenu6 >핵심 기술</S.SubMenu6>
-                  <S.SubMenu7 >기업 부설 연구소</S.SubMenu7>
+                  <S.SubMenu7 >핵심 기술</S.SubMenu7>
+                  <S.SubMenu8 >기업 부설 연구소</S.SubMenu8>
                 </S.MenuStyle2>
               )}           
               {activeMenu === 3 && (
                 <S.MenuStyle3>
-                  <S.SubMenu8 >의료기기</S.SubMenu8>
-                  <S.SubMenu9 >코스메슈티컬</S.SubMenu9>
-                  <S.SubMenu10 >비임상연구용역</S.SubMenu10>
-                  <S.SubMenu11 >신약개발</S.SubMenu11>
+                  <S.SubMenu9 >의료기기</S.SubMenu9>
+                  <S.SubMenu10 >코스메슈티컬</S.SubMenu10>
+                  <S.SubMenu11 >비임상연구용역</S.SubMenu11>
+                  <S.SubMenu12>신약개발</S.SubMenu12>
                 </S.MenuStyle3>
               )}
               {activeMenu === 4 && (
                 <S.MenuStyle4>
-                  <S.SubMenu12 >의료기기</S.SubMenu12>
-                  <S.SubMenu13 >코스메슈티컬</S.SubMenu13>
+                  <S.SubMenu13 >의료기기</S.SubMenu13>
+                  <S.SubMenu14 >코스메슈티컬</S.SubMenu14>
                 </S.MenuStyle4>
               )}
               {activeMenu === 5 && (
                 <S.MenuStyle5>
-                  <S.SubMenu14>서비스 소개</S.SubMenu14>
-                  <S.SubMenu15>서비스 항목</S.SubMenu15>
+                  <S.SubMenu15>서비스 소개</S.SubMenu15>
+                  <S.SubMenu16>서비스 항목</S.SubMenu16>
                 </S.MenuStyle5>
               )}
               {activeMenu === 6 && (
                 <S.MenuStyle6>
-                  <S.SubMenu16>공지사항</S.SubMenu16>
-                  <S.SubMenu17>보도자료</S.SubMenu17>
-                  <S.SubMenu18>행사정보</S.SubMenu18>
-                  <S.SubMenu19>앨범</S.SubMenu19>
+                  <S.SubMenu17>공지사항</S.SubMenu17>
+                  <S.SubMenu18>보도자료</S.SubMenu18>
+                  <S.SubMenu19>행사정보</S.SubMenu19>
+                  <S.SubMenu20>앨범</S.SubMenu20>
                 </S.MenuStyle6>
               )}
             </S.MenuBar>
