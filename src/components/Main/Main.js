@@ -19,7 +19,13 @@ export default function Main() {
   /* API 상태관리 */
   const [press, setPress] = useState([]); /* 보도자료 */
   const [events, setEvents] = useState([]); /* 행사정보 */
-  const [loading, setLoading] = useState(true); // 로딩 상태 추가y
+  const [loading, setLoading] = useState(true); // 로딩 상태 추가
+
+  const handleMoreBtnClick = () => {
+    // 더보기 버튼 클릭 시 이동할 URL 설정
+    const moreBtnUrl = 'https://www.yna.co.kr/view/AKR20230714110100516';
+    window.open(moreBtnUrl, '_blank'); // 새 창으로 열기
+  };
 
   useEffect(() => {
     let isMounted = true;
@@ -63,88 +69,6 @@ export default function Main() {
       isMounted = false;
     };
   }, []);
-/*  useEffect(() => {
-  let isMounted = true;
-
-  const fetchPress = async () => {
-    try {
-      const response = await axios.get('/api/articles/NEWS/latest');
-      setPress([response.data]); 
-    } catch (error) {
-      console.error('보도자료 가져오는데 문제가 발생했습니다:', error);
-    }
-  };
-
-  const fetchEvents = async () => {
-    try {
-      const response = await axios.get('/api/articles/EVENT/latest');
-      setEvents([response.data]); 
-    } catch (error) {
-      console.error('행사정보를 가져오는데 문제가 발생했습니다:', error);
-    }
-  };
-
-  const fetchData = async () => {
-    try {
-      setLoading(true); 
-      await Promise.all([fetchPress(), fetchEvents()]);
-    } finally {
-      setLoading(false); 
-    }
-  };
-
-  fetchData();
-
-  return () => {
-    isMounted = false;
-  };
-}, []);  */
-/* 
-useEffect(() => {
-  let isMounted = true;
-
-  const fetchPress = async () => {
-    try {
-      const response = await axios.get('/api/articles/NEWS/latest');
-      setPress([response.data]); 
-    } catch (error) {
-      console.error('보도자료 가져오는데 문제가 발생했습니다:', error);
-    }
-  };
-
-  const fetchEvents = async () => {
-    try {
-      const response = await axios.get('/api/articles/EVENT/latest');
-      setEvents([response.data]); 
-    } catch (error) {
-      console.error('행사정보를 가져오는데 문제가 발생했습니다:', error);
-    }
-  };
-
-  const fetchData = async () => {
-    try {
-      setLoading(true);
-      const pressResponse = await axios.get('/api/articles/NEWS/latest');
-      const eventsResponse = await axios.get('/api/articles/EVENT/latest');
-      
-      setPress([pressResponse.data]);
-      setEvents([eventsResponse.data]);
-    } catch (error) {
-      console.error('데이터를 가져오는데 문제가 발생했습니다:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  fetchData();
-
-  return () => {
-    isMounted = false;
-  };
-}, []);
-
-
- */
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -227,7 +151,7 @@ useEffect(() => {
                       <br />나이가 들수록 발병 우려가 커지는 대표적인 퇴행성 질환이다.
                       <br />세계 인구의 10%~15%가 이 병으로 고통받는 것으로 추산된다.
               </S.Text2>
-              <S.MoreBtn src='/img/more_btn.png'/>{/* 홈페이지 안 보도자료로 이동 */}
+              <S.MoreBtn src='/img/more_btn.png' onClick={handleMoreBtnClick} />{/* 홈페이지 안 보도자료로 이동 */}
            </S.Title>
 
         </S.Container>
