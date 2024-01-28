@@ -69,88 +69,7 @@ export default function Main() {
       isMounted = false;
     };
   }, []);
-/*  useEffect(() => {
-  let isMounted = true;
 
-  const fetchPress = async () => {
-    try {
-      const response = await axios.get('/api/articles/NEWS/latest');
-      setPress([response.data]); 
-    } catch (error) {
-      console.error('보도자료 가져오는데 문제가 발생했습니다:', error);
-    }
-  };
-
-  const fetchEvents = async () => {
-    try {
-      const response = await axios.get('/api/articles/EVENT/latest');
-      setEvents([response.data]); 
-    } catch (error) {
-      console.error('행사정보를 가져오는데 문제가 발생했습니다:', error);
-    }
-  };
-
-  const fetchData = async () => {
-    try {
-      setLoading(true); 
-      await Promise.all([fetchPress(), fetchEvents()]);
-    } finally {
-      setLoading(false); 
-    }
-  };
-
-  fetchData();
-
-  return () => {
-    isMounted = false;
-  };
-}, []);  */
-/* 
-useEffect(() => {
-  let isMounted = true;
-
-  const fetchPress = async () => {
-    try {
-      const response = await axios.get('/api/articles/NEWS/latest');
-      setPress([response.data]); 
-    } catch (error) {
-      console.error('보도자료 가져오는데 문제가 발생했습니다:', error);
-    }
-  };
-
-  const fetchEvents = async () => {
-    try {
-      const response = await axios.get('/api/articles/EVENT/latest');
-      setEvents([response.data]); 
-    } catch (error) {
-      console.error('행사정보를 가져오는데 문제가 발생했습니다:', error);
-    }
-  };
-
-  const fetchData = async () => {
-    try {
-      setLoading(true);
-      const pressResponse = await axios.get('/api/articles/NEWS/latest');
-      const eventsResponse = await axios.get('/api/articles/EVENT/latest');
-      
-      setPress([pressResponse.data]);
-      setEvents([eventsResponse.data]);
-    } catch (error) {
-      console.error('데이터를 가져오는데 문제가 발생했습니다:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  fetchData();
-
-  return () => {
-    isMounted = false;
-  };
-}, []);
-
-
- */
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -287,42 +206,48 @@ useEffect(() => {
             <S.TextContainer>
               <S.Text>RECENT NEWS</S.Text>
 
-                {/* 보도자료 */}
-                <S.PressContainer>
-  {loading ? (
-    <div>Loading...</div>
-  ) : (
-    press && press.length > 0 ? (
-      press.map((item, index) => (
-        <S.Press key={index}>
-          <div>{item.title}</div>
-          <div>{item.createdAt}</div>
-          <div>{item.content}</div>
-        </S.Press>
-      ))
-    ) : (
-      <div>No press data available</div>
-    )
-  )}
-</S.PressContainer>
 
-<S.EventContainer>
-  {loading ? (
-    <div>Loading...</div>
-  ) : (
-    events && events.length > 0 ? (
-      events.map((item, index) => (
-        <S.Event key={index}>
-          <div>{item.title}</div>
-          <div>{item.createdAt}</div>
-          <div>{item.content}</div>
-        </S.Event>
-      ))
-    ) : (
-      <div>No event data available</div>
-    )
-  )}
-</S.EventContainer>
+            {/* 보도자료 */}
+            <S.PressContainer>
+              <S.PressLabel>[보도자료]</S.PressLabel>
+              {loading ? (
+                <div>Loading...</div>
+              ) : (
+                press && press.length > 0 ? (
+                  press.map((item, index) => (
+                    <S.Press key={index}>
+                      <div style={{ fontWeight:'700', fontSize: '12px', color: '#333' }}>{item.title.slice(0, 15)}</div>                      
+                      <div style={{ fontSize: '11px', color: '#555', lineHeight: '2' }}>{item.content}</div>
+                      <div style={{ fontSize: '12px', color: '#777',position: 'absolute',right : '10px'}}>{item.createdAt.split('T')[0]}</div>                   
+
+                    </S.Press>
+                  ))
+                ) : (
+                  <div>No press data available</div>
+                )
+              )}
+            </S.PressContainer>
+
+            {/* 행사정보 */}
+            <S.EventContainer>
+              <S.PressLabel>[행사정보]</S.PressLabel>
+              {loading ? (
+                <div>Loading...</div>
+              ) : (
+                events && events.length > 0 ? (
+                  events.map((item, index) => (
+                    <S.Event key={index}>
+                      <div style={{ fontWeight:'700', fontSize: '12px', color: '#333' }}>{item.title.slice(0, 15)}</div>                      
+                      <div style={{ fontSize: '11px', color: '#555', lineHeight: '2' }}>{item.content}</div>
+                      <div style={{ fontSize: '12px', color: '#777',position: 'absolute',right : '10px'}}>{item.createdAt.split('T')[0]}</div>                   
+                    </S.Event>
+                  ))
+                ) : (
+                  <div>No event data available</div>
+                )
+              )}
+            </S.EventContainer>
+
 
             </S.TextContainer>
 
