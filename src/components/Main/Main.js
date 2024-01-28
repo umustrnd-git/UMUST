@@ -21,6 +21,12 @@ export default function Main() {
   const [events, setEvents] = useState([]); /* 행사정보 */
   const [loading, setLoading] = useState(true); // 로딩 상태 추가y
 
+  const handleMoreBtnClick = () => {
+    // 더보기 버튼 클릭 시 이동할 URL 설정
+    const moreBtnUrl = 'https://www.yna.co.kr/view/AKR20230714110100516';
+    window.open(moreBtnUrl, '_blank'); // 새 창으로 열기
+  };
+
   useEffect(() => {
     let isMounted = true;
 
@@ -227,7 +233,7 @@ useEffect(() => {
                       <br />나이가 들수록 발병 우려가 커지는 대표적인 퇴행성 질환이다.
                       <br />세계 인구의 10%~15%가 이 병으로 고통받는 것으로 추산된다.
               </S.Text2>
-              <S.MoreBtn src='/img/more_btn.png'/>{/* 홈페이지 안 보도자료로 이동 */}
+              <S.MoreBtn src='/img/more_btn.png' onClick={handleMoreBtnClick} />{/* 홈페이지 안 보도자료로 이동 */}
            </S.Title>
 
         </S.Container>
