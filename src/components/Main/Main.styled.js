@@ -278,15 +278,31 @@ export const PressContainer = styled.div`
    border: 1px solid #D9D9D9;
    border-radius: 10px;
    margin-top: 38px;
-
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background-color: #F2F2F2;
 `;
 
-export const Press = styled.div``;
+export const Press = styled.div`
+   font-size: 16px; 
+   color: #333; 
+`;
+
+/* 보도자료 / 행사정보 레이블 */
+export const PressLabel = styled.div`
+   color: #033788;
+   font-size: 13px;
+   font-weight: 700;
+   margin-bottom: 15px;
+   cursor: pointer;
+`;
+
 
 /* 행사정보 */
 /* 나중에 테두리 지우기 */
 export const EventContainer = styled.div`
-   position: absolute;
    position: absolute;
    width: 270px;
    height: 180px;
@@ -294,6 +310,11 @@ export const EventContainer = styled.div`
    margin-left: 300px;
    border-radius: 10px;
    margin-top: 38px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background-color: #F2F2F2;
 `;
 
 export const Event = styled.div``;
