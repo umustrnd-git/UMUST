@@ -1,10 +1,9 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import * as S from './Tech.styled';
+import * as S from './Cosmetic.styled';
 
-
-const Tech = () => {
+const Cosmetic = () => {
    return (
       <S.Wrapper>
          <Header />
@@ -12,7 +11,7 @@ const Tech = () => {
          <S.MenuTab>구현예정</S.MenuTab>
 
          <S.MainComponent>
-            핵심기술
+            코스메슈티컬
 
          </S.MainComponent>
          <Footer />
@@ -20,5 +19,4 @@ const Tech = () => {
    );
 };
 
-export default Tech;
-
+export default Cosmetic;

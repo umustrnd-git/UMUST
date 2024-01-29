@@ -15,7 +15,7 @@ export const MenuTab = styled.div`
    background: #9c9;
 `;
 
-export const MainComponent = styled.img`
+export const MainComponent = styled.div`
    padding: 50px;
    width: 1150px;
    margin: 0 auto;

@@ -14,6 +14,9 @@ import Invest from './routes/Intro/Invest';
 import Tech from './routes/Research/Tech';
 import Lab from './routes/Research/Lab';
 
+import Medical from './routes/Product/Medical';
+import Cosmetic from './routes/Product/Cosmetic';
+
 import Notice from './routes/List/Notice';
 import Press from './routes/List/Press';
 import Event from './routes/List/Event';
@@ -35,6 +38,9 @@ const App = () => {
 
         <Route path="/Research/Tech" element={<Tech />} />
         <Route path="/Research/Lab" element={<Lab />} />
+
+        <Route path="/Product/Medical" element={<Medical />} />
+        <Route path="/Product/Cosmetic" element={<Cosmetic />} />
 
 
 

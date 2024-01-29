@@ -10,7 +10,10 @@ const Lab = () => {
          <S.WrapImage src="/img/CEO.png"/>
          <S.MenuTab>구현예정</S.MenuTab>
 
-         <h3>기업부설연구소</h3>
+         <S.MainComponent>
+            기업부설연구소
+
+         </S.MainComponent>
          <Footer />
       </S.Wrapper>
    );

@@ -79,7 +79,9 @@ const Header = () => {
                   <S.SubMenu7 >
                     <Link to="/Research/Tech">핵심기술</Link>
                   </S.SubMenu7>
-                  <S.SubMenu8 >기업 부설 연구소</S.SubMenu8>
+                  <S.SubMenu8 >
+                    <Link to="/Research/Lab">기업부설 연구소</Link>
+                  </S.SubMenu8>
                 </S.MenuStyle2>
               )}           
               {activeMenu === 3 && (
@@ -92,8 +94,12 @@ const Header = () => {
               )}
               {activeMenu === 4 && (
                 <S.MenuStyle4>
-                  <S.SubMenu13 >의료기기</S.SubMenu13>
-                  <S.SubMenu14 >코스메슈티컬</S.SubMenu14>
+                  <S.SubMenu13 >
+                    <Link to="/Product/Medical">의료기기</Link>
+                  </S.SubMenu13>
+                  <S.SubMenu14 >
+                    <Link to="/Product/Cosmetic">코스메슈티컬</Link>
+                  </S.SubMenu14>
                 </S.MenuStyle4>
               )}
               {activeMenu === 5 && (
