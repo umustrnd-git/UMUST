@@ -102,10 +102,18 @@ const Header = () => {
               )}
               {activeMenu === 6 && (
                 <S.MenuStyle6>
-                  <S.SubMenu17>공지사항</S.SubMenu17>
-                  <S.SubMenu18>보도자료</S.SubMenu18>
-                  <S.SubMenu19>행사정보</S.SubMenu19>
-                  <S.SubMenu20>앨범</S.SubMenu20>
+                  <S.SubMenu17>
+                    <Link to="/List/Notice">공지사항</Link>
+                  </S.SubMenu17>
+                  <S.SubMenu18>
+                    <Link to="/List/Press">보도자료</Link>
+                  </S.SubMenu18>
+                  <S.SubMenu19>
+                    <Link to="/List/Event">행사정보</Link>
+                  </S.SubMenu19>
+                  <S.SubMenu20>
+                    <Link to="/List/Album">앨범</Link>
+                  </S.SubMenu20>
                 </S.MenuStyle6>
               )}
             </S.MenuBar>
