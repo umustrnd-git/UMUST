@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import YouTube from 'react-youtube';
 import * as S from './Main.styled';
 import axios from 'axios';
+import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
 
 const images = [
   '/img/slide_01.png',
@@ -119,6 +121,7 @@ export default function Main() {
 
   return (
     <S.Wrapper>
+      <Header />
       <S.ImageSlide
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -247,8 +250,6 @@ export default function Main() {
                 )
               )}
             </S.EventContainer>
-
-
             </S.TextContainer>
 
         </S.Section3Left>
@@ -260,7 +261,7 @@ export default function Main() {
         </S.Section3Right>
       </S.Section3>
 
-      
+      <Footer />
     </S.Wrapper>
   );
 }

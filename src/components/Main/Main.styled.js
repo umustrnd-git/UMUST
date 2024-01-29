@@ -255,7 +255,7 @@ export const TextContainer = styled.div`
    border-radius: 10px;
    border: 1px solid #D9D9D9;
    background: #FFF;
-   margin-right: 15px;
+   margin-left: -14px;
    display: flex;
    position: relative;
    text-align: center;

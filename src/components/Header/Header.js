@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import * as S from './Header.styled';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [activeMenu, setActiveMenu] = useState(null);
@@ -29,7 +30,9 @@ const Header = () => {
   return (
     <S.Wrapper isScrolled={isScrolled} onMouseLeave={handleMouseLeave}>
       <S.Header isScrolled={isScrolled}>
-      <S.Logo src='/img/Logo.png' alt='Logo' />
+      <Link to="/">
+          <S.Logo src='/img/Logo.png' alt='Logo' />
+        </Link>
         <S.Menu>
           <S.Menu1 onMouseEnter={() => handleMouseEnter(1)}>회사소개</S.Menu1>
           <S.Menu2 onMouseEnter={() => handleMouseEnter(2)}>연구개발</S.Menu2>
@@ -43,13 +46,32 @@ const Header = () => {
             <S.MenuBar>
               {activeMenu === 1 && (
                 <S.MenuStyle1>
-                  <S.SubMenu1 >CEO 인사말</S.SubMenu1>
-                  <S.SubMenu2 >기업 개요</S.SubMenu2>
-                  <S.SubMenu3 >CI 소개</S.SubMenu3>
-                  <S.SubMenu4 >조직도</S.SubMenu4>
-                  <S.SubMenu5 >주요연혁</S.SubMenu5>
-                  <S.SubMenu5 >Open Innovation</S.SubMenu5>
-                  <S.SubMenu6 >투자</S.SubMenu6>
+                  <S.SubMenu1>
+                    <Link to="/Intro/Ceo">CEO 인사말</Link>
+                  </S.SubMenu1>
+
+                  <S.SubMenu2 >
+                    <Link to="/Intro/Outline">기업 개요</Link>
+                  </S.SubMenu2>
+
+                  <S.SubMenu3 >
+                    <Link to="/Intro/Ci">CI 소개</Link>
+                  </S.SubMenu3>
+
+                  <S.SubMenu4 >
+                    <Link to="/Intro/Orga">조직도</Link>
+                  </S.SubMenu4>
+                  <S.SubMenu5 >
+                    <Link to="/Intro/History">주요연혁</Link>
+                  </S.SubMenu5>
+
+                  <S.SubMenu5 >
+                    <Link to="/Intro/OpenInno">Open Innovation</Link>
+                  </S.SubMenu5>
+
+                  <S.SubMenu6 >
+                    <Link to="/Intro/Invest">투자</Link>
+                  </S.SubMenu6>
                 </S.MenuStyle1>
               )}
               {activeMenu === 2 && (
