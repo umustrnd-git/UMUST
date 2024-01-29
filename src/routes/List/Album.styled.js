@@ -35,6 +35,10 @@ export const Memo = styled.div`
    padding: 0 30px 30px 30px;
 `;
 
+export const Line = styled.div`
+   border: 2px solid #033788;
+`;
+
 export const AlbumWrapper = styled.div`
    display: grid;
    grid-template-columns: repeat(4, 1fr);

@@ -76,7 +76,9 @@ const Header = () => {
               )}
               {activeMenu === 2 && (
                 <S.MenuStyle2>
-                  <S.SubMenu7 >핵심 기술</S.SubMenu7>
+                  <S.SubMenu7 >
+                    <Link to="/Research/Tech">핵심기술</Link>
+                  </S.SubMenu7>
                   <S.SubMenu8 >기업 부설 연구소</S.SubMenu8>
                 </S.MenuStyle2>
               )}           

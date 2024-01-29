@@ -37,7 +37,7 @@ const Album = () => {
          <S.MainContainer>
             <S.Title>앨범</S.Title>
             <S.Memo>유머스트알엔디의 일상을 기록합니다.</S.Memo>
-
+            <S.Line />
 
 {/* 샘플 데이터 -> 지울거 */}
          <S.AlbumWrapper>
